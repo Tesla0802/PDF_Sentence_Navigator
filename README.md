@@ -1,8 +1,6 @@
 # PDF_Sentence_Navigator
 ---
 
-# PDF Sentence Navigator
-
 A Chrome Extension that allows you to navigate between sentences in a PDF document using your keyboard:
 
 * **TAB** → Move to the next sentence
