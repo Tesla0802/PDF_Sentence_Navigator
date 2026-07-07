@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Sentence Navigator",
+  "version": "1.0.0",
+  "description": "PDF დოკუმენტში წინადადებებზე გადაადგილება TAB / SHIFT+TAB კლავიშებით.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyrNr3N6btQAQ8CDD5w2+XRJXkVnXvD2tZMK/wLeZZ0HZe54zOnB61qmCG01yTSRloA1wbBPR5ZauscwFV4kqD0uqu8ZXFYCJP1pqdBH+Q8eaY8R8TbZV2AaM+0mY3UBOWu1LloTuaJ4s7iH/4+RvqyCPu91pVdTGgm6ZQl65ejZOveL1CCRmU2GoxTUgJG1wO9MlJJV1USvsqIaAgmxTj0OvKikp8az5dQ5PoQg8h26Omut9pSa2XRWTqfgwzJ4KOVw9yoS+z4Bti4rY2UblwBPD56+GXQ4OM/Blx8oQiR3tdJZ2YnftkhtkIQrfC6ODHd5Lp+eiCO4SUJ0wynxqPQIDAQAB",
+
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": ["<all_urls>"],
+
+  "action": {
+    "default_title": "PDF Sentence Navigator",
+    "default_popup": "popup.html"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["viewer.html", "viewer.js", "viewer.css", "pdfjs/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

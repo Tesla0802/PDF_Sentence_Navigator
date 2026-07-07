@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Sentence Navigator</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <div id="toolbar">
+    <label id="pickLabel" for="filePicker">📄 ლოკალური PDF ფაილის არჩევა</label>
+    <input type="file" id="filePicker" accept="application/pdf">
+    <span id="statusText"></span>
+    <span id="sentenceCounter"></span>
+    <span class="hint">TAB — შემდეგი წინადადება · SHIFT+TAB — წინა წინადადება</span>
+  </div>
+
+  <div id="viewerContainer">
+    <div id="pdfPages"></div>
+  </div>
+
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>
