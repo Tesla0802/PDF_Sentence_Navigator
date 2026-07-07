@@ -1,7 +1,3 @@
-// viewer.js
-// PDF Sentence Navigator
-// -----------------------------------------------------------------------
-
 import * as pdfjsLib from "./pdfjs/pdf.mjs";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -21,10 +17,6 @@ let fullText = "";
 let spanRanges = [];
 let sentences = [];
 let currentSentenceIndex = -1;
-
-// -------------------------------------------------------------------------
-// 1. წყაროს დადგენა
-// -------------------------------------------------------------------------
 
 function getFileParam() {
   const search = window.location.search;
@@ -56,10 +48,6 @@ filePicker.addEventListener("change", async (e) => {
   const buf = await file.arrayBuffer();
   await loadPdf(buf);
 });
-
-// -------------------------------------------------------------------------
-// 2. PDF-ის ჩატვირთვა და რენდერი
-// -------------------------------------------------------------------------
 
 async function loadPdf(arrayBuffer) {
   pdfPagesEl.innerHTML = "";
@@ -110,14 +98,9 @@ async function renderPage(page) {
 
   await page.render({ canvasContext: ctx, viewport }).promise;
 
-  // ✅ normalizeWhitespace ჩართულია
   const textContent = await page.getTextContent({ normalizeWhitespace: true });
   addTextLayer(textContent, viewport, textLayerDiv);
 }
-
-// -------------------------------------------------------------------------
-// 3. ტექსტის ფენის აგება
-// -------------------------------------------------------------------------
 
 function addTextLayer(textContent, viewport, container) {
   textContent.items.forEach((item) => {
@@ -155,10 +138,6 @@ function addTextLayer(textContent, viewport, container) {
   });
 }
 
-// -------------------------------------------------------------------------
-// 4. წინადადებებად დაყოფა
-// -------------------------------------------------------------------------
-
 function buildSentences() {
   const SENTENCE_END_RE = /[^.!?…;:\n]*[.!?…;:]+[)"'»]*\s*/g;
   let match;
@@ -185,10 +164,6 @@ function buildSentences() {
     }
   }
 }
-
-// -------------------------------------------------------------------------
-// 5. ნავიგაცია და გამოკვეთა
-// -------------------------------------------------------------------------
 
 function getSpansInRange(start, end) {
   return spanRanges
@@ -241,10 +216,6 @@ function updateCounter() {
 function setStatus(text) {
   statusTextEl.textContent = text;
 }
-
-// -------------------------------------------------------------------------
-// 6. კლავიატურის მართვა
-// -------------------------------------------------------------------------
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Tab") {
